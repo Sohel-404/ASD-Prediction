@@ -358,7 +358,16 @@ def plot(y_test, y_prob, auc_score):
     
 
 def shapAnalysis(model, X_train, X_test, y_test, feature_names):
-    
+    """
+    _summary_
+
+    Args:
+        model: _description_
+        X_train: _description_
+        X_test: _description_
+        y_test: _description_
+        feature_names: _description_
+    """
     print("\nSHAP Analysis...")
     
     # Convert to Dataframes with gene names
@@ -371,7 +380,6 @@ def shapAnalysis(model, X_train, X_test, y_test, feature_names):
     shap_values = explainer.shap_values(X_test_df)
     
     # Summary plot 
-    print("    Feature importance plot...")
     plt.figure(figsize=(10, 8))
     shap.summary_plot(shap_values, X_test_df, show=False)
     plt.tight_layout()

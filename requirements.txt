@@ -5,4 +5,5 @@ shap
 scikit-learn
 imbalanced-learn
 hyperopt
+setuptools<81
 xgboost

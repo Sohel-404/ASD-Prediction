@@ -30,7 +30,7 @@ def setSeed(seed=SEED):
     Set random seed for reproducibility.
     """
     random.seed(seed)
-    np.random.seed(seed)
+    np.random.default_rng(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
 
 

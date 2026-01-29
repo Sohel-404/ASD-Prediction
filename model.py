@@ -359,14 +359,14 @@ def plot(y_test, y_prob, auc_score):
 
 def shapAnalysis(model, X_train, X_test, y_test, feature_names):
     """
-    _summary_
+    Generate SHAP explanations for model interpretability.
 
     Args:
-        model: _description_
-        X_train: _description_
-        X_test: _description_
-        y_test: _description_
-        feature_names: _description_
+        model: XGBClassifier
+        X_train: Training features
+        X_test: Test features
+        y_test: Test labels
+        feature_names: Gene names
     """
     print("\nSHAP Analysis...")
     

@@ -356,7 +356,28 @@ def plot(y_test, y_prob, auc_score):
     plt.tight_layout()
     plt.show()
     
+
+def shapAnalysis(model, X_train, X_test, y_test, feature_names):
     
+    print("\nSHAP Analysis...")
+    
+    # Convert to Dataframes with gene names
+    X_train_df = pd.DataFrame(X_train, columns=feature_names)
+    X_test_df = pd.DataFrame(X_test, columns=feature_names)
+    
+    background = X_train_df.sample(n=min(50, len(X_train_df)), random_state=SEED)
+    
+    explainer = shap.TreeExplainer(model, background)
+    shap_values = explainer.shap_values(X_test_df)
+    
+    # Summary plot 
+    print("    Feature importance plot...")
+    plt.figure(figsize=(10, 8))
+    shap.summary_plot(shap_values, X_test_df, show=False)
+    plt.tight_layout()
+    plt.show()
+    
+
 
 def main():
     # Setup
@@ -392,6 +413,9 @@ def main():
     clf, metrics = modelTraining(
         best_params, X_train_bal, X_test_sel, y_train_bal, y_test
     )
+    
+    # 8: SHAP interpretability analysis
+    shapAnalysis(clf, X_train_bal, X_test_sel, y_test, selected_features)
        
     
 if __name__=="__main__":

@@ -13,10 +13,7 @@ Find genes whose RNA-Seq expression profiles serve as biomarkers for distinguish
 
 ## Dataset
 
-[@GSE42133](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42133) — Gene Expression Omnibus (GEO)
-
-
-Platform: GPL10558 — Illumina HumanHT-12 v4
+[@GSE42133](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42133) - Gene Expression Omnibus (GEO)
 
 This dataset contains whole blood transcriptome profiles for ASD and matched Control subjects.
 ## Workflow Overview
